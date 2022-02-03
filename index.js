@@ -16,3 +16,6 @@ app.listen(PORT, ()=>{
 const mainRouter = require('./routes/router');
 app.use(mainRouter);
 
+// Routing API
+const apiProduct = require("./routes/api/product");
+app.use(apiProduct);

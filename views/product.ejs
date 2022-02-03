@@ -4,12 +4,57 @@
 
 <article class="product">
     <h1>Products</h1>
-    <div class="list-product">
-        <% listProduct.map(function(data){ %>
+    <div class="list-product" id="list-product">
+        <!-- Load Data With EJS -->
+        <!-- <% listProduct.map(function(data){ %>
             <%- include("./component/product", {data: data}) %>
-        <% }); %>
+        <% }); %> -->
     </div>
 </article>
+
+<script>
+
+    const getDataProduct = async () =>{
+        const data = await fetch('http://127.0.0.1:3000/api/product').then(response => response.json()).then(data => data);
+        const {result} = data;
+
+        // looping Data in Template
+        result.map((data, i)=>{
+            const listProduct = document.getElementById("list-product")
+            const template = `
+                    <div class="card-product" id="cardProduct${i}">
+                        <img src="image/products/${data.img}" alt=""  id="cardProductImg${i}" />
+                        <div id="cardProductBtn${i}" class="button-product-detail">Detail</div>
+                        <p id="cardProductP${i}">${data.nama} </p>
+                    </div>`
+            listProduct.innerHTML += template;
+        });
+
+        // Add mouseOver & mouseOut Listener
+        const resultLength = result.length
+        for (let i = 0; i < resultLength; i++) {
+            const cardProduct =  document.getElementById(`cardProduct${i}`)
+            cardProduct.addEventListener('mouseover', 
+            function (e){
+                const dataId = e.target.id.substr(-1);
+                document.getElementById(`cardProductImg${dataId}`).classList.add("card-product-opacity"); //Img 
+                document.getElementById(`cardProductBtn${dataId}`).classList.add("visible"); //Button Detail
+                document.getElementById(`cardProductP${dataId}`).classList.add("card-product-opacity"); //p
+            })   
+            
+            cardProduct.addEventListener('mouseout', 
+            function (e){
+                const dataId = e.target.id.substr(-1);
+                   document.getElementById(`cardProductImg${dataId}`).classList.remove("card-product-opacity"); //Img
+                   document.getElementById(`cardProductBtn${dataId}`).classList.remove("visible"); //Button Detail
+                   document.getElementById(`cardProductP${dataId}`).classList.remove("card-product-opacity"); //p
+            })   
+        }
+        
+    }
+    getDataProduct()
+</script>
+
 
 <!-- Pagination -->
 <div class="pagination">
