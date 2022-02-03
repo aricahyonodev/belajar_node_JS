@@ -1,0 +1,62 @@
+<%- include("./template/header") %> 
+<%- include("./component/topNavigasi") %> 
+<%- include("./component/heroHeader") %> 
+   
+    <main>
+        <!-- Article latest-articles-->
+        <article class="latest-articles" id="articles">
+            <h1>Latest Articles</h1>
+            <hr class="line">
+            <!-- list articles -->
+            <div class="list-articles">
+                <!-- List article 1 -->
+                <section>
+               <a href="/detail">
+                    <img src="image/Vector.png" alt="">
+               <div class="article-text">
+                    <hr class="line">
+                    <h1>Title Of Articles</h1>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    </p>
+                </div>
+               </a>
+            </section>
+            <!-- List article 2 -->
+            <section>
+                <img src="image/clear-light.png" alt="">
+                <div class="article-text">
+                    <hr class="line">
+                    <h1>Title Of Articles</h1>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    </p>
+                </div>
+            </section>
+            <!-- List article 3 -->
+            <section>
+                <img src="image/close-up.png" alt="">
+                <div class="article-text">
+                    <hr class="line">
+                    <h1>Title Of Articles</h1>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    </p>
+                </div>
+            </section>
+            </div>
+        </article>
+        <%- include("./component/about") %> 
+        <!-- Article Susbribe-->
+        <article class="subscribe" id="subscribe">
+            <h1>Subscribe</h1>
+            <p>Sing up to our newsletters</p>
+            <!-- Article Susbribe-Form -->
+            <div class="subcribe-form">
+                <input type="text" placeholder="Your email here..">
+                <button class="button">submit</button>
+            </div>
+        </article>
+    </main>
+    
+ <%- include("./template/footer") %> 

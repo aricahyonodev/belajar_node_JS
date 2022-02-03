@@ -1,0 +1,18 @@
+<div class="card-product" 
+onmouseover="cardMouseOver(this)" onmouseout="cardMouseOut(this)">
+    <img src="image/products/<%= data.img %>" alt="" />
+    <div class="button-product-detail">Detail</div>
+    <p> <%= data.nama %> </p>
+</div>
+<script>
+    function cardMouseOver(e) {
+    e.children[0].classList.add("card-product-opacity"); //Img 
+    e.children[1].classList.add("visible"); //Button Detail
+    e.children[2].classList.add("card-product-opacity"); //p
+    }
+    function cardMouseOut(e) {
+    e.children[0].classList.remove("card-product-opacity"); //Img
+    e.children[1].classList.remove("visible"); //Button Detail
+    e.children[2].classList.remove("card-product-opacity"); //p
+    }
+</script>

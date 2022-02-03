@@ -1,0 +1,22 @@
+<%- include("./template/header") %> 
+<%- include("./component/topNavigasi") %> 
+<%- include("./component/heroHeader") %> 
+
+<article class="product">
+    <h1>Products</h1>
+    <div class="list-product">
+        <% listProduct.map(function(data){ %>
+            <%- include("./component/product", {data: data}) %>
+        <% }); %>
+    </div>
+</article>
+
+<!-- Pagination -->
+<div class="pagination">
+    <ul>
+        <li><a href="" class="active">1</a></li>
+        <li><a href="">2</a></li>
+        <li><a href="">3</a></li>
+    </ul>    
+</div>
+<%- include("./template/footer") %> 

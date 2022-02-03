@@ -1,0 +1,27 @@
+footer{
+    display: flex;
+    background: #FFFFFF;
+    padding: 28px 56px;
+    justify-content: flex-end;
+}
+footer.footer-green{
+    background: #6CBE5E;
+}
+footer.footer-green a{
+    color: #FFFFFF;
+}
+
+footer ul li{
+    display: inline;
+    margin-left: 24px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+/* Mobile Footer */
+@media only screen and (max-width: 576px) {
+    footer {
+        justify-content: center;
+        padding: 24px;
+    }
+}

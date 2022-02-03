@@ -1,0 +1,104 @@
+/* Hero Detail */
+/* Article hero-detail */
+article.hero-detail{
+    display: flex;
+    padding:  40px;
+}
+
+article.hero-detail .hero-detail-image{
+    width: 65%;
+}
+article.hero-detail .hero-detail-image img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Article hero-detail-Text*/
+article.hero-detail .hero-detail-text{
+    width: 35%;
+    background: #FFFFFF;
+    margin: auto 70px;
+    text-align: center;
+    font-size: 18px;
+}
+article.hero-detail .hero-detail-text h1{
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 28px;
+}
+article.hero-detail .hero-detail-text hr{
+    margin-top: 16px;
+    margin-bottom: 28px;
+    width: 50px;
+}
+article.hero-detail .hero-detail-text p{
+    text-align: justify;
+    font-style: italic;
+}
+
+/* More Image */
+.more-image{
+    text-align: center;
+    margin-bottom: 60px;
+    margin-top: 28px;
+}
+.list-more-image{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    margin-top: 24px;
+}
+.card-more-image img{
+    border-radius: 10px;
+    width: 94%;
+}
+
+/* Price */
+.detail-price {
+    display: flex;
+    margin: 60px 0 0 0;
+}
+.card-detail-price {
+    background: #F9F9F9;
+    border: 1px solid #F2F2F2;
+    border-radius: 10px;
+    padding: 60px;
+    width: 60%;
+    margin-left: 40px;
+    font-size: 18px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.card-detail-price h1{
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+.card-detail-price p{
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.card-detail-price ol li{
+    display: flex;
+    margin-left: 16px;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+.card-detail-price ol li .text{
+    width: 70%
+}
+.card-detail-price ol li .harga{
+    text-align: right;
+}
+.card-detail-price .total{
+    display: flex;
+    margin-top: 16px;
+    justify-content: space-between;
+}
+.button-buy-product{
+    background-color: #6cbe5e;
+    border-radius: 10px;
+    padding: 12px 36px;
+    color: #FFFFFF;
+    font-weight: 600;
+    width: fit-content;
+    margin: 40px 0 120px 76%;
+}

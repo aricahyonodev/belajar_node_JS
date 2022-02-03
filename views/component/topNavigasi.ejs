@@ -1,0 +1,13 @@
+ <!-- Header Navigasi -->
+ <% const navStyle = (value)=> `header-nav-${value}` %> 
+   <nav class="header-nav <%= navStyle(navValue)  %>">
+       <div class="header-logo" >
+           <a href="/">Logo</a>
+       </div>
+       <ul>
+           <li><a href="#about">About</a></li>
+           <li><a href="/product">Products</a></li>
+           <li><a href="#articles">Articles</a></li>
+           <li><a href="#subscribe">Subscribe</a></li>
+       </ul>
+   </nav>

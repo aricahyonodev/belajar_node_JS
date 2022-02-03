@@ -1,0 +1,60 @@
+<%- include("./template/header") %> 
+<%- include("./component/topNavigasi") %> 
+ 
+<div class="detail-hero">
+  <article class="hero-detail" id="about">
+    <!-- Article About Image -->
+    <section class="hero-detail-image">
+      <img src="image/Vector.png" alt="">
+    </section>
+    <!-- Article About Text -->
+    <section class="hero-detail-text">
+        <h1>The Articles</h1>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque maxime assumenda accusantium rem unde debitis dolorem incidunt, sint libero alias accusamus iusto voluptates minima a, aliquid facere quia dolorum, ratione quaerat deserunt perspiciatis voluptatibus! Doloremque fuga unde aliquam nisi incidunt.
+        </p>
+    </section>
+</article>
+</div>
+
+    <div class="more-image">
+        <h1>More Image</h1>
+        <div class="list-more-image">
+           <% dataMoreImage.map(function(data){ %>
+              <div class="card-more-image">
+                <img src="image/<%= data.img %> " alt="">
+              </div>
+          <% }); %>
+        </div>
+    </div>
+
+  <%- include("./component/about") %> 
+
+    <div class="detail-price">
+      <div class="card-price-image">
+        <img src="image/pexels-ksenia-chernaya.png" alt="">
+      </div>
+      <div class="card-detail-price">
+        <h1>Price</h1>
+        <p>List Package</p>
+        <ol>
+          <li>
+            <span class="text">1. Plant Bucket 1 So Awesome</span>
+            <span class="harga">Rp. 340.000</span>
+          </li>
+          <li>
+            <span class="text">2. Sun Flower Bucket 2 Amaze</span>
+            <span class="harga">Rp. 570.000</span></li>
+        </ol>
+        <div class="total">
+          <span class="text">Total</span>
+          <span class="total-harga">Rp. 910.000</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Button Buy Products -->
+    <div class="button-buy-product">
+      Buy Products
+    </div>
+ <%- include("./template/footer") %> 

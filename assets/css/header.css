@@ -1,0 +1,103 @@
+header{
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header.blur-branches {
+    background-image: url('../image/blur-branches.png');
+}
+header.taman {
+    background-image: url('../image/taman.png');
+}
+header.taman .header-hero-text h1,
+header.taman .header-hero-text p {
+    color: #FFFFFF;
+}
+
+
+/* Header Hero */
+div.header-hero-text{
+    text-align: center;
+}
+div.header-hero-text h1{
+    font-size: 64px;
+    font-weight: bold;
+}
+div.header-hero-text p{
+    font-size: 18px;
+    margin-top: -8px;
+}
+div.header-hero-text hr{
+    width: 75px;
+}
+
+/* Header Navigasi */
+nav.header-nav{
+    /* position: absolute; */
+    top: 0;
+    width: 100%;
+    padding: 24px 40px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    box-sizing: border-box;
+    text-transform: uppercase;
+}
+nav.header-nav-green{
+    background: #6CBE5E;
+}
+nav.header-nav-green .header-logo,
+nav.header-nav-green a
+{
+    color: #FFFFFF;
+}
+
+nav.header-nav-absolute{
+    position: absolute;
+}
+nav.header-nav-white{
+    background: #FFFFFF;
+}
+/* Nav-Logo*/
+nav.header-nav .header-logo {
+    font-weight: 700;
+}
+/* Nav-Menu*/
+nav.header-nav ul li{
+    display: inline;
+    margin: 0;
+    margin-left: 50px;
+}
+nav.header-nav ul li:hover{
+    border: 1px solid #414141;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+nav.header-nav-green ul li:hover{
+    border: 1px solid #FFFFFF;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Mobile Header */
+@media only screen and (max-width: 576px) {
+    header {
+        height: 460px;
+    }
+    /* Header Hero */
+    .header-hero-text h1 {
+        font-size: 48px;
+    }
+    /* Header Navigasi */
+    nav.header-nav {
+        justify-content: center;
+    }
+    nav.header-nav ul li {
+        display: none;
+    }
+}
