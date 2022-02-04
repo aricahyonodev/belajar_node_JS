@@ -14,44 +14,50 @@
 
 <script>
 
-    const getDataProduct = async () =>{
-        const data = await fetch('http://127.0.0.1:3000/api/product').then(response => response.json()).then(data => data);
-        const {result} = data;
-
-        // looping Data in Template
-        result.map((data, i)=>{
-            const listProduct = document.getElementById("list-product")
-            const template = `
-                    <div class="card-product" id="cardProduct${i}">
-                        <img src="image/products/${data.img}" alt=""  id="cardProductImg${i}" />
-                        <div id="cardProductBtn${i}" class="button-product-detail">Detail</div>
-                        <p id="cardProductP${i}">${data.nama} </p>
-                    </div>`
-            listProduct.innerHTML += template;
-        });
-
-        // Add mouseOver & mouseOut Listener
-        const resultLength = result.length
-        for (let i = 0; i < resultLength; i++) {
-            const cardProduct =  document.getElementById(`cardProduct${i}`)
-            cardProduct.addEventListener('mouseover', 
-            function (e){
-                const dataId = e.target.id.substr(-1);
-                document.getElementById(`cardProductImg${dataId}`).classList.add("card-product-opacity"); //Img 
-                document.getElementById(`cardProductBtn${dataId}`).classList.add("visible"); //Button Detail
-                document.getElementById(`cardProductP${dataId}`).classList.add("card-product-opacity"); //p
-            })   
-            
-            cardProduct.addEventListener('mouseout', 
-            function (e){
-                const dataId = e.target.id.substr(-1);
-                   document.getElementById(`cardProductImg${dataId}`).classList.remove("card-product-opacity"); //Img
-                   document.getElementById(`cardProductBtn${dataId}`).classList.remove("visible"); //Button Detail
-                   document.getElementById(`cardProductP${dataId}`).classList.remove("card-product-opacity"); //p
-            })   
+    // Helper Function
+    const addMouseListener = (dataLength) =>{
+        const mouseOver = e => {
+            const dataId = e.target.id.substr(-1); // Get Last Charachter in cardProductId
+            document.getElementById(`cardProductImg${dataId}`).classList.add("card-product-opacity"); //Img 
+            document.getElementById(`cardProductBtn${dataId}`).classList.add("visible"); //Button Detail
+            document.getElementById(`cardProductP${dataId}`).classList.add("card-product-opacity"); //p
+        }
+        const mouseOut = e => {
+            const dataId = e.target.id.substr(-1); // Get Last Charachter in cardProductId
+            document.getElementById(`cardProductImg${dataId}`).classList.remove("card-product-opacity"); //Img
+            document.getElementById(`cardProductBtn${dataId}`).classList.remove("visible"); //Button Detail
+            document.getElementById(`cardProductP${dataId}`).classList.remove("card-product-opacity"); //p
         }
         
+        for (let i = 0; i < dataLength; i++) {
+            const cardProduct =  document.getElementById(`cardProduct${i}`)
+            cardProduct.addEventListener('mouseover', (e)=>mouseOver(e))   
+            cardProduct.addEventListener('mouseout', (e)=>mouseOut(e))   
+        }
     }
+    
+    // Helper Function
+    const loadProduct = (dataProduct) => {
+        dataProduct.map(
+            (data, i)=>{
+                const template = `
+                        <div class="card-product" id="cardProduct${i}">
+                            <img src="image/products/${data.img}" alt=""  id="cardProductImg${i}" />
+                            <div id="cardProductBtn${i}" class="button-product-detail">Detail</div>
+                            <p id="cardProductP${i}">${data.nama} </p>
+                        </div>`
+                document.getElementById("list-product").innerHTML += template;
+        });
+    }
+
+    // Main Function
+    const getDataProduct = async () =>{
+        const data       = await fetch('http://127.0.0.1:3000/api/product');
+        const {result}   = await data.json(); 
+        loadProduct(result);
+        addMouseListener(result.length)
+    }
+
     getDataProduct()
 </script>
 
