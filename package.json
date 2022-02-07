@@ -1,6 +1,28 @@
 {
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
     "ejs": "^3.1.6",
-    "express": "^4.17.2"
-  }
+    "express": "^4.17.2",
+    "mongodb": "^4.3.1",
+    "mongoose": "^6.2.0"
+  },
+  "name": "belajar_node_js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aricahyonodev/belajar_node_JS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aricahyonodev/belajar_node_JS/issues"
+  },
+  "homepage": "https://github.com/aricahyonodev/belajar_node_JS#readme",
+  "description": ""
 }

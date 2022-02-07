@@ -1,21 +1,43 @@
 const express = require('express');
 const app = express();
-const PORT = 3000;
 
-// Config
+// Other Config 
+// .env
+const dotenv = require("dotenv");
+dotenv.config({ path: "./config/config.env" });
+// MongoDB Connection
+const DatabaseMongoDB = require("./config/dbConnection");
+DatabaseMongoDB();
+
+// Config Express JS
 // Static File
 app.use(express.static("assets"));
 // Template Engine
 app.set("view engine", "ejs");
+// Request Handler
+app.use(express.urlencoded({ extended: true })) // Type Data Form
+app.use(express.json()) // Type Data JSON
+
+//Routing 
+// CORS
+const cors = require("cors");
+app.options("*", cors());
 // Server
+const PORT = 3000;
 app.listen(PORT, ()=>{
     console.log(`Server Running in Port ${PORT}`);
 });
 
-// Routing
+// Routing WEB
 const mainRouter = require('./routes/router');
 app.use(mainRouter);
 
+// Routing API WEB
+const apiWebProduct = require("./routes/web/product");
+app.use("/web/product", apiWebProduct);
+
 // Routing API
 const apiProduct = require("./routes/api/product");
-app.use(apiProduct);
+app.use("/api/product", apiProduct);
+const apiUser = require("./routes/api/user");
+app.use("/api/user", apiUser);

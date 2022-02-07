@@ -1,13 +1,14 @@
 const express = require("express");
 const routes = express.Router();
-routes.get("/api/product", (req, res) => {
-  const dataProduct = require("../../data/dataProduct");
-  const data = {
-        message: "success",
-        statusCode: 200,
-        result: dataProduct
-  }
-  res.send(data);
-});
+
+// API
+const ProductAPIControllers = require("../../controllers/product");
+
+routes.get("/all", ProductAPIControllers.all);
+routes.post("/create", ProductAPIControllers.create);
+routes.get("/findOne/:id", ProductAPIControllers.findOne);
+routes.patch("/updateOne/:id", ProductAPIControllers.updateOne);
+routes.put("/updateMany/:id", ProductAPIControllers.UpdateMany);
+routes.delete("/delete/:id", ProductAPIControllers.delete);
 
 module.exports = routes;

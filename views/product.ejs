@@ -52,7 +52,7 @@
 
     // Main Function
     const getDataProduct = async () =>{
-        const data       = await fetch('http://127.0.0.1:3000/api/product');
+        const data       = await fetch('http://127.0.0.1:3000/web/product/list');
         const {result}   = await data.json(); 
         loadProduct(result);
         addMouseListener(result.length)
