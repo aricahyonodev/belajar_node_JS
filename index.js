@@ -37,7 +37,10 @@ const apiWebProduct = require("./routes/web/product");
 app.use("/web/product", apiWebProduct);
 
 // Routing API
+const apiAuth = require("./routes/api/auth");
+app.use("/api/auth", apiAuth);
 const apiProduct = require("./routes/api/product");
-app.use("/api/product", apiProduct);
+const authenticateToken = require("./module/authenticateToken");
+app.use("/api/product", authenticateToken, apiProduct);
 const apiUser = require("./routes/api/user");
 app.use("/api/user", apiUser);

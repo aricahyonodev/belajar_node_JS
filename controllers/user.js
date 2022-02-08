@@ -1,10 +1,11 @@
 const User = require("../models/user")
-
+const Cryptr = require("cryptr");
 module.exports = {
-    create : (req, res) => {
+  create : (req, res) => {
+        const cryptr = new Cryptr("myTotalySecretKey");
         const dataUser = new User({
           username: req.body.username,
-          password: req.body.password,
+          password: cryptr.encrypt(req.body.password),
           fullname: req.body.fullname,
           email: req.body.email,
           age: req.body.age,

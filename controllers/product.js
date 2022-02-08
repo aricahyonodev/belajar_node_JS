@@ -1,19 +1,25 @@
 const Product = require("../models/product");
+const jwt = require("jsonwebtoken");
 
 module.exports = {
   all: (req, res) => {
-      Product.find().then(response => {
-        res.send({
-            message: `Successfull to get data`,
-            statusCode: 200,
-            results: response
-        })
-    }).catch(err => {
-        res.send({
-            message: `Failed to get data`,
-            statusCode: 500,
-        })
-      })
+       Product.find()
+         .then((response) => {
+           res.send({
+             message: `Successfull to get data`,
+             statusCode: 200,
+             results: response,
+           });
+         })
+         .catch((err) => {
+           res.send({
+             message: `Failed to get data`,
+             statusCode: 500,
+           });
+         });
+    
+
+    
   },
 
   create: (req, res) => {
